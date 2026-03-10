@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bc4gssi3jua8j"]
+
+[ext_resource type="Script" uid="uid://n7eov1byfted" path="res://player1.gd" id="1_ng0wg"]
+[ext_resource type="Texture2D" uid="uid://bu83qc1h0dcqx" path="res://whitepixel.png" id="2_pqb02"]
+[ext_resource type="Script" uid="uid://cpqqqe8r23760" path="res://Player1PaddleSprite.gd" id="3_ytgb6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng0wg"]
+size = Vector2(10.596027, 96)
+
+[node name="Player1" type="CharacterBody2D" unique_id=83645607]
+script = ExtResource("1_ng0wg")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=2036201411]
+position = Vector2(12, 0)
+scale = Vector2(0.755, 1)
+shape = SubResource("RectangleShape2D_ng0wg")
+
+[node name="Paddle" type="Sprite2D" parent="." unique_id=1541772549]
+unique_name_in_owner = true
+position = Vector2(12, -0.125)
+scale = Vector2(8, 79.74999)
+texture = ExtResource("2_pqb02")
+script = ExtResource("3_ytgb6")

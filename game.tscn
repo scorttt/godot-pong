@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://dtchwqlmtjm83"]
+
+[ext_resource type="PackedScene" uid="uid://bc4gssi3jua8j" path="res://player1.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://ccahf2ws0yu2c" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://cc4nm4wf65om" path="res://player2.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bxevymji3t5c0" path="res://ball.tscn" id="5_7jktm"]
+[ext_resource type="FontFile" uid="uid://dgofdkbgya50u" path="res://Mintbit-pprmint.otf" id="5_ryrav"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eow3j"]
+font = ExtResource("5_ryrav")
+font_size = 80
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
+size = Vector2(328, 928)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryrav"]
+size = Vector2(328, 928)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fc0e3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
+size = Vector2(1280, 64)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7jktm"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eow3j"]
+size = Vector2(1280, 64)
+
+[node name="Game" type="Node2D" unique_id=1709542728]
+script = ExtResource("1_fc0e3")
+
+[node name="Player1" parent="." unique_id=83645607 instance=ExtResource("1_80nbo")]
+position = Vector2(16, 384)
+collision_layer = 7
+
+[node name="Player2" parent="." unique_id=1033156826 instance=ExtResource("2_e2o6t")]
+position = Vector2(1264, 384)
+collision_layer = 7
+
+[node name="Ball" parent="." unique_id=2133437011 instance=ExtResource("5_7jktm")]
+unique_name_in_owner = true
+position = Vector2(640, 384)
+collision_mask = 4
+linear_damp_mode = 1
+angular_damp_mode = 1
+
+[node name="ui" type="Node" parent="." unique_id=1527773103]
+
+[node name="background" type="ColorRect" parent="ui" unique_id=1550752646]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="seperator" type="ColorRect" parent="ui" unique_id=1586730631]
+z_index = -3
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.020000001
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -16.000002
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ScorePlayer1" type="Label" parent="ui" unique_id=612921989]
+unique_name_in_owner = true
+z_index = -3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 32.0
+offset_right = -4.0
+offset_bottom = 112.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_eow3j")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScorePlayer2" type="Label" parent="ui" unique_id=901582022]
+unique_name_in_owner = true
+z_index = -3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 12.0
+offset_top = 32.0
+offset_right = 164.0
+offset_bottom = 112.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_eow3j")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftGoal" type="Area2D" parent="." unique_id=674786797]
+position = Vector2(8, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal" unique_id=1366970791]
+position = Vector2(-172, 400)
+shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="RightGoal" type="Area2D" parent="." unique_id=1168744881]
+position = Vector2(-8, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal" unique_id=17481791]
+position = Vector2(1452, 400)
+shape = SubResource("RectangleShape2D_ryrav")
+
+[node name="BottomWall" type="StaticBody2D" parent="." unique_id=300788157]
+position = Vector2(0, 848)
+collision_layer = 7
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_fc0e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall" unique_id=231290830]
+position = Vector2(640, -16)
+shape = SubResource("RectangleShape2D_fc0e3")
+
+[node name="TopWall" type="StaticBody2D" parent="." unique_id=319956214]
+collision_layer = 7
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_7jktm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall" unique_id=1900486213]
+position = Vector2(640, -32)
+shape = SubResource("RectangleShape2D_eow3j")
+
+[connection signal="body_entered" from="LeftGoal" to="." method="_on_left_goal_body_entered"]
+[connection signal="body_entered" from="RightGoal" to="." method="_on_right_goal_body_entered"]
