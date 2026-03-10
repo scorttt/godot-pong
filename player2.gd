@@ -26,10 +26,11 @@ func _physics_process(delta):
 			velocity.y -= 1;
 	else:
 		var t: float = 1.0 - clamp(
-			abs(ball.global_position.x - global_position.x) /
-			get_viewport_rect().size.x, 0.0, 1.0);
+								abs(ball.global_position.x - global_position.x) /
+								get_viewport_rect().size.x, 0.0, 1.0);
 
 		var rate: float = lerp(0.1, 1.0, t);
+		print(rate);
 
 		if ball.global_position.y + paddleHalf < global_position.y:
 			velocity.y -= rate;
