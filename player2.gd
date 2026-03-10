@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const SPEED = 50.0;
 var isAiPlayer: bool = true;
-var onRightSide: bool = false;
 var paddleSlowRate: float = 0.25;
 
 @onready var ball = %Ball;
@@ -13,8 +12,6 @@ func _physics_process(delta):
 	var paddleHalf: float = paddleHeight / 2;
 	var screenTop: float = paddleHeight;
 	var screenBottom: float = get_viewport_rect().size.y - paddleHeight;
-
-	onRightSide = true if ball.global_position.x > get_viewport_rect().size.x / 1.5 else false;
 
 	if Input.is_action_pressed("p2_move_up") || Input.is_action_pressed("p2_move_down"):
 		isAiPlayer = false;
