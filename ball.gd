@@ -4,7 +4,6 @@ const BALL_INIT_SPEED:   float = 600.0;
 const SPEED_INCREASE:    float = 75.0;
 var initialBallPosition: Vector2 = Vector2(640.0, 384.0);
 var initialBallVelocity: Vector2 = Vector2.ZERO;
-var changeVelocity:      bool = false;
 var speed:               float = BALL_INIT_SPEED;
 var reset:               bool = false;
 
@@ -12,8 +11,7 @@ func _ready():
 	randomizeServeDirection();
 
 func _physics_process(_delta):
-	if !changeVelocity:
-		linear_velocity = linear_velocity.normalized() * speed;
+	linear_velocity = linear_velocity.normalized() * speed;
 
 func _integrate_forces(state):
 	if reset:
@@ -25,7 +23,6 @@ func _integrate_forces(state):
 		randomizeServeDirection();
 
 func randomizeServeDirection():
-	changeVelocity = false;
 	linear_velocity = initialBallVelocity;
 	var randomY = randf_range(-0.5, 0.5);
 	if randi_range(1, 2) == 1:
