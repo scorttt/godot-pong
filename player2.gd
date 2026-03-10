@@ -9,7 +9,6 @@ var paddleSlowRate: float = 0.25;
 
 func _physics_process(delta):
 	var paddleHeight: float = paddle.scale.y / 2;
-	var paddleHalf: float = paddleHeight / 2;
 	var screenTop: float = paddleHeight;
 	var screenBottom: float = get_viewport_rect().size.y - paddleHeight;
 
@@ -29,9 +28,9 @@ func _physics_process(delta):
 		var rate: float = lerp(0.1, 1.0, t);
 		print(rate);
 
-		if ball.global_position.y + paddleHalf < global_position.y:
+		if ball.global_position.y + paddleHeight < global_position.y:
 			velocity.y -= rate;
-		elif ball.global_position.y - paddleHalf > global_position.y:
+		elif ball.global_position.y - paddleHeight > global_position.y:
 			velocity.y += rate;
 		else:
 			velocity.y = 0;
