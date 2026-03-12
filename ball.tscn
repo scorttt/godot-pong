@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vb0r7o4cxsxo" path="res://ball.gd" id="1_x8fbi"]
 [ext_resource type="Texture2D" uid="uid://bu83qc1h0dcqx" path="res://whitepixel.png" id="2_ktgx5"]
-[ext_resource type="Script" uid="uid://d0qykqjbf38tc" path="res://ballSprite.gd" id="3_hgol0"]
+[ext_resource type="Script" uid="uid://cj5yfxi52ty0n" path="res://spritePixelSnap.gd" id="3_ktgx5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8fbi"]
 friction = 0.0
@@ -31,6 +31,6 @@ shape = SubResource("RectangleShape2D_x8fbi")
 position = Vector2(4, 4)
 scale = Vector2(8, 8)
 texture = ExtResource("2_ktgx5")
-script = ExtResource("3_hgol0")
+script = ExtResource("3_ktgx5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

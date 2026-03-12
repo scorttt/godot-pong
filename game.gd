@@ -8,16 +8,16 @@ var player2Score: int = 0;
 
 
 func _on_left_goal_body_entered(body):
-	if body.has_method("resetBall"):
+	if body.has_method("ResetBall"):
 		player2Score += 1;
 		player2ScoreHUD.text = str(player2Score);
-		respawnBall();
+		RespawnBall();
 
 func _on_right_goal_body_entered(body):
-	if body.has_method("resetBall"):
+	if body.has_method("ResetBall"):
 		player1Score += 1;
 		player1ScoreHUD.text = str(player1Score);
-		respawnBall();
+		RespawnBall();
 
-func respawnBall():
-	ball.resetBall();
+func RespawnBall():
+	ball.ResetBall();

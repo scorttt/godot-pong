@@ -8,7 +8,7 @@ var speed:               float = BALL_INIT_SPEED;
 var reset:               bool = false;
 
 func _ready():
-	randomizeServeDirection();
+	RandomizeServeDirection();
 
 func _physics_process(_delta):
 	linear_velocity = linear_velocity.normalized() * speed;
@@ -20,9 +20,9 @@ func _integrate_forces(state):
 		state.set_transform(nextTransform);
 		state.linear_velocity = Vector2.ZERO;
 		reset = false;
-		randomizeServeDirection();
+		RandomizeServeDirection();
 
-func randomizeServeDirection():
+func RandomizeServeDirection():
 	linear_velocity = initialBallVelocity;
 	var randomY = randf_range(-0.5, 0.5);
 	if randi_range(1, 2) == 1:
@@ -32,7 +32,7 @@ func randomizeServeDirection():
 
 	initialBallVelocity = get_linear_velocity();
 	
-func resetBall():
+func ResetBall():
 	reset = true;
 	speed = BALL_INIT_SPEED
 

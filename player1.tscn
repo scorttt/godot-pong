@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://n7eov1byfted" path="res://player1.gd" id="1_ng0wg"]
 [ext_resource type="Texture2D" uid="uid://bu83qc1h0dcqx" path="res://whitepixel.png" id="2_pqb02"]
-[ext_resource type="Script" uid="uid://cpqqqe8r23760" path="res://Player1PaddleSprite.gd" id="3_ytgb6"]
+[ext_resource type="Script" uid="uid://cj5yfxi52ty0n" path="res://spritePixelSnap.gd" id="3_ytgb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng0wg"]
 size = Vector2(10.596027, 96)
