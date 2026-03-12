@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dtchwqlmtjm83"]
 
-[ext_resource type="PackedScene" uid="uid://bc4gssi3jua8j" path="res://player1.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://bc4gssi3jua8j" path="res://player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://ccahf2ws0yu2c" path="res://game.gd" id="1_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://cc4nm4wf65om" path="res://player2.tscn" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://bib3p2n7stjh" path="res://player2.gd" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://bxevymji3t5c0" path="res://ball.tscn" id="5_7jktm"]
 [ext_resource type="FontFile" uid="uid://dgofdkbgya50u" path="res://Mintbit-pprmint.otf" id="5_ryrav"]
 
@@ -34,12 +34,13 @@ size = Vector2(1280, 64)
 script = ExtResource("1_fc0e3")
 
 [node name="Player1" parent="." unique_id=83645607 instance=ExtResource("1_80nbo")]
-position = Vector2(16, 384)
+position = Vector2(24, 384)
 collision_layer = 7
 
-[node name="Player2" parent="." unique_id=1033156826 instance=ExtResource("2_e2o6t")]
-position = Vector2(1264, 384)
+[node name="Player2" parent="." unique_id=1152247659 instance=ExtResource("1_80nbo")]
+position = Vector2(1248, 384)
 collision_layer = 7
+script = ExtResource("3_7jktm")
 
 [node name="Ball" parent="." unique_id=2133437011 instance=ExtResource("5_7jktm")]
 unique_name_in_owner = true

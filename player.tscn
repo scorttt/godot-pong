@@ -11,13 +11,13 @@ size = Vector2(10.596027, 96)
 script = ExtResource("1_ng0wg")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=2036201411]
-position = Vector2(12, 0)
+position = Vector2(4, 0)
 scale = Vector2(0.755, 1)
 shape = SubResource("RectangleShape2D_ng0wg")
 
 [node name="Paddle" type="Sprite2D" parent="." unique_id=1541772549]
 unique_name_in_owner = true
-position = Vector2(12, -0.125)
+position = Vector2(4, -0.125)
 scale = Vector2(8, 79.74999)
 texture = ExtResource("2_pqb02")
 script = ExtResource("3_ytgb6")
