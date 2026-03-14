@@ -11,10 +11,10 @@ font = ExtResource("5_ryrav")
 font_size = 80
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
-size = Vector2(328, 928)
+size = Vector2(328, 896)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryrav"]
-size = Vector2(328, 928)
+size = Vector2(328, 896)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fc0e3"]
 friction = 0.0
@@ -44,7 +44,7 @@ script = ExtResource("3_7jktm")
 
 [node name="Ball" parent="." unique_id=2133437011 instance=ExtResource("5_7jktm")]
 unique_name_in_owner = true
-position = Vector2(640, 384)
+position = Vector2(644, 384)
 collision_mask = 4
 linear_damp_mode = 1
 angular_damp_mode = 1
@@ -112,7 +112,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal" unique_id=1366970791]
-position = Vector2(-172, 400)
+position = Vector2(-172, 384)
 shape = SubResource("RectangleShape2D_7jktm")
 
 [node name="RightGoal" type="Area2D" parent="." unique_id=1168744881]
@@ -121,7 +121,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal" unique_id=17481791]
-position = Vector2(1452, 400)
+position = Vector2(1452, 384)
 shape = SubResource("RectangleShape2D_ryrav")
 
 [node name="BottomWall" type="StaticBody2D" parent="." unique_id=300788157]
@@ -131,7 +131,7 @@ collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_fc0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall" unique_id=231290830]
-position = Vector2(640, -16)
+position = Vector2(640, -48)
 shape = SubResource("RectangleShape2D_fc0e3")
 
 [node name="TopWall" type="StaticBody2D" parent="." unique_id=319956214]

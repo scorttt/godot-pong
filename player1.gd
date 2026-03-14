@@ -4,7 +4,7 @@ const SPEED: float = 50.0;
 var paddleSlowRate: float = 0.25;
 
 @onready var paddle = %Paddle;
-
+	
 func _physics_process(delta):
 	var paddleHeight: float = paddle.scale.y / 2;
 	var screenTop: float = paddleHeight;

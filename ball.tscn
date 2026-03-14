@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bxevymji3t5c0"]
 
 [ext_resource type="Script" uid="uid://vb0r7o4cxsxo" path="res://ball.gd" id="1_x8fbi"]
-[ext_resource type="Texture2D" uid="uid://bu83qc1h0dcqx" path="res://whitepixel.png" id="2_ktgx5"]
 [ext_resource type="Script" uid="uid://cj5yfxi52ty0n" path="res://spritePixelSnap.gd" id="3_ktgx5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8fbi"]
@@ -10,6 +9,33 @@ bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8fbi"]
 size = Vector2(8, 8)
+
+[sub_resource type="Gradient" id="Gradient_ktgx5"]
+offsets = PackedFloat32Array(0, 0.9)
+colors = PackedColorArray(1, 1, 1, 1, 0.32941177, 0.32941177, 0.32941177, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hgol0"]
+gradient = SubResource("Gradient_ktgx5")
+width = 8
+
+[sub_resource type="Curve" id="Curve_ktgx5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_hgol0"]
+curve = SubResource("Curve_ktgx5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ktgx5"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 4.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_hgol0")
+color_ramp = SubResource("GradientTexture1D_hgol0")
 
 [node name="Ball" type="RigidBody2D" unique_id=2133437011]
 physics_interpolation_mode = 1
@@ -24,13 +50,19 @@ max_contacts_reported = 1
 script = ExtResource("1_x8fbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1890700232]
-position = Vector2(4, 4)
+visible = false
 shape = SubResource("RectangleShape2D_x8fbi")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=274507047]
+z_index = -1
+amount = 80
+lifetime = 0.2
+fixed_fps = 240
+process_material = SubResource("ParticleProcessMaterial_ktgx5")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007518729]
-position = Vector2(4, 4)
+visible = false
 scale = Vector2(8, 8)
-texture = ExtResource("2_ktgx5")
 script = ExtResource("3_ktgx5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
